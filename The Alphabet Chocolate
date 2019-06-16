@@ -1,0 +1,92 @@
+import java.util.*;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+class TestClass {
+    static class FastReader
+	{
+		BufferedReader br;
+		StringTokenizer st;
+
+		public FastReader()
+		{
+			br = new BufferedReader(new
+					InputStreamReader(System.in));
+		}
+
+		String next()
+		{
+			while (st == null || !st.hasMoreElements())
+			{
+				try
+				{
+					st = new StringTokenizer(br.readLine());
+				}
+				catch (IOException e)
+				{
+					e.printStackTrace();
+				}
+			}
+			return st.nextToken();
+		}
+
+		int nextInt()
+		{
+			return Integer.parseInt(next());
+		}
+
+		long nextLong()
+		{
+			return Long.parseLong(next());
+		}
+
+		double nextDouble()
+		{
+			return Double.parseDouble(next());
+		}
+
+		String nextLine()
+		{
+			String str = "";
+			try
+			{
+				str = br.readLine();
+			}
+			catch (IOException e)
+			{
+				e.printStackTrace();
+			}
+			return str;
+		}
+	}
+    public static void main(String args[] ) throws Exception {
+       FastReader s=new FastReader();
+      int t=s.nextInt();
+      for(int i=0;i<t;i++)
+      {
+          String g=s.next();
+          int l=g.length();
+          ArrayList<String> a1=new ArrayList<String>();
+          for(int j=0;j<l;j++)
+          {
+              for(int k=j+1;k<=l;k++)
+              {
+                  a1.add(g.substring(j,k));
+              }
+          }
+         long count=0;
+          for(String p2:a1)
+          {
+              String p4=p2;
+              char a[]=p4.toCharArray();
+              for(int j2=0;j2<a.length;j2++)
+              {
+                  if(a[j2]=='a'||a[j2]=='e'||a[j2]=='i'||a[j2]=='o'||a[j2]=='u'||a[j2]=='A'||a[j2]=='E'||a[j2]=='I'||a[j2]=='O'||a[j2]=='U')
+                  count++;
+              }
+          }
+          System.out.println(count);
+      }
+    }
+}
