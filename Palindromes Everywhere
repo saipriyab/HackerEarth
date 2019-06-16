@@ -1,0 +1,47 @@
+import java.util.*;
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+        Scanner s=new Scanner(System.in);
+        String a=s.next();
+        String b=s.next();
+        ArrayList<String> c=new ArrayList<String>();
+        ArrayList<String> d=new ArrayList<String>();
+        for(int i=0;i<a.length();i++)
+        {
+            for(int j=i+1;j<=a.length();j++)
+            {
+                c.add(a.substring(i,j));
+            }
+        }
+        for(int i1=0;i1<b.length();i1++)
+        {
+            for(int j1=i1+1;j1<=b.length();j1++)
+            {
+                d.add(b.substring(i1,j1));
+            }
+        }
+        int l=0;
+        for(String e:c)
+        {
+            String f="";
+            f=f+e;
+            for(String g:d)
+            {
+                f=f+g;
+                String h=new StringBuffer(f).reverse().toString();
+                if(h.equals(f))
+                {
+                    if(f.length()>l)
+                    {
+                    l=f.length();
+                  //  System.out.println(f);
+                    }
+                }
+                f="";
+                f=f+e;
+            }
+        }
+        System.out.println(l);
+
+    }
+}
